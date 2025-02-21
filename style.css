@@ -1,0 +1,40 @@
+*{
+    background-color:black;
+    color:rgb(99, 171, 23);
+}
+
+h1,h2 {
+    
+    font-family:papyrus;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    
+}
+img {
+    width:25%;
+    margin-left:37.5%;
+    margin-right:37.5%;
+    align-content:center;
+    max-height:25%
+}
+ul {
+    
+    margin-top:10px;
+    margin-bottom:50px;
+    padding:0%;
+    
+}
+li {
+    list-style-type:none;
+    display:block;
+    min-width:90%;
+    border-color:white;
+    border-width: 3px;
+    border-style:solid;
+    
+    padding:15px;
+    text-align:center;
+    
+}
