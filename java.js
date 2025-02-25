@@ -29,7 +29,7 @@ let sceneList = {
     "Killed":["Your futile attempts at combat were easily thwarted by the undead beast. The Zombie enjoys a feast of Brains. I say a feast, but judging that terrible decision, it was more of a snack.","decisions.webp","Try again","Start"],
     "Freewill":["You run into the woods. as you run, you trip and drop your \"second item\". You still have a mask though. You make it to a clearing where you see a jeep, with no (alive) owner in sight. The keys are on the ground next to it. What do you do?","Jeep.png","Did you seriously give us the illusion of being able to pick two of four items, only to immediately \"drop\" our \"second item?\" You didn't even make separate nodes for each of the things we dropped. This totally breaks my immersion in this very realistic experience.", "Attempt to get in the jeep and drive to the vault.","Meta","Jeep"],
     "Meta":["You begin questioning your reality. How could an airborne illness turn people into zombies? How can I not remember what item I dropped in the woods? I only picked two!","decided.webp","You begin to go insane.","Insanity"],
-    "Insanity":["The voices begin speaking. They seem to say the word \"TRAILMIX\" over and over again. Eventually, you succumb to the insanity.","decided.webp","Try again","Start"],
+    "Insanity":["The voices begin speaking. They seem to say the word \"TRAILMIX\" over and over again. Eventually, you succumb to the insanity.","decided.webp","Try again","The cracks are starting to form","Start","Cracks"],
     "MBat":["As you exit your home, you come face to face with a zombie. What do you do?","decision.webp","Attack the Zombie with your baseball bat","Run into the woods","Battle","Freewill"],
     "MMix":["As you exit your home, you lock eyes with a zombie in the house across the street. What do you do?","decided.webp","run into the woods","run to a nearby shopping center","eat some trail mix as you ponder what to do.","Freewill","Parking","Eat"],
     "Eat":["You take off your mask to eat the trail mix. Im sure you see the immediate problem there. the airborne virus transforms you into a zombie.","Death.avif","Try again","Start"],
@@ -43,7 +43,11 @@ let sceneList = {
     "Cocky":["It turns out, one head is better than none, but not when the other is holding a gun.","decisions.webp","Try again","Start"],
     "Survivors":["You enter a shopping center parking lot. You see two trucks of survivors loading up on supplies at the local grocery store. What do you do?","decided.webp","Approach them","smash th ewindow of the car next to you and attempt to hotwire it.","Jason","Alarm"],
     "Jason":["You look a lot like a zombie holding a baseball bat. You are unalived on sight by the survivors. They will never know you were a human","decided.webp","Try again","Start"],
-    "Jeep":["CONGRATULATIONS! You successfully drive the jeep to the vault and survive the apocalypse. Wait a minute, that was only two nodes past the item selection! You ran into the woods and found an unlocked Jeep! That's just so free. I hereby revoke your win. Thats right. No win for you. Hopefully this will show you that winning takes real effort, not stumbling into a free ticket in the woods. Go find the real ending. ","Fakeout.png","Play Again","Start"]
+    "Jeep":["CONGRATULATIONS! You successfully drive the jeep to the vault and survived the apocalypse.  ","Fakeout.png","Continue to recieve your reward","BRUH"],
+    "BRUH":["You really thought that was the end. You really thought that the ending of this adventure was running away from the only danger, stumbling through the woods, finding an unlocked car, and then just driving that car to the end of the game? Is that all a win is worth to you? No. I refuse to allow it. \"Continue and recieve your reward.\" How could you believe that for a second? On one hand there is obviously no reward for a school project game, and secondly who would ever reward anyone for doing the tiny, miniscule amount of effort that it took for you to make it to this ending? The only reward that wouod be worthy for such a short \"ending\" is a sticker, and thats a stretch. Go play the game again (don't refresh), and this time, find an ending that takes at least 4 or five clicks.  ","decided.webp","Go back to the start","\"Erm actually, I disagree. I do deserve a win for doing next to nothing\"","JK","BRUH2"],
+    "JK":["Thank you for listening to me. On second thought, I think you do deserve a win. CONGRATULATIONS!","decisions.webp","Play again","Start"],
+    "BRUH2":["Very funny. \" I picked the funny option I'm so unique!\" Guess what? After playtesting this game for hours every person that tested this screen picked the funny option. And do you know what else? if you had picked \" Try again\" then you would have won! Instead, you had to argue with me, you had to pick the funny option. (Don't refresh the page) Next time, pick the other option and see what happens.","","Come back here later","Start"],
+    "Cracks":["The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. The cracks are starting to form. ","Cracks.png","The cracks are starting to form","Start"]
 
 
 }
@@ -56,6 +60,9 @@ function doEverything(newScene){
     }
     if (trailMixDeaths >2){
         newScene = "TRUEENDING"
+    }
+    if (newScene=="BRUH2"){
+        sceneList["JK"] = ["YOU FOOL! You really thought that coming all the way back here and picking a different option would yield you the correct ending? Guess what! I changed it with an if statement after you chose to argue with me! Now you have to refresh the page to come all the way back here and get the ending you so desperately desire. And, I might have been joking about it the whole time, you could never know. Have fun!","decided.webp"]
     }
     //console.log(newScene === currentScene)
     currentScene = newScene
@@ -73,16 +80,20 @@ function doEverything(newScene){
     document.getElementById("option 1").addEventListener("click",function(){
         doEverything(scene[1+(scene.length-2)/2+1])
     })
-    document.getElementById("option 2").addEventListener("click",function(){
-        doEverything(scene[1+(scene.length-2)/2+2])
-    })
-    document.getElementById("option 3").addEventListener("click",function(){
-        doEverything(scene[1+(scene.length-2)/2+3])
-    })
-    document.getElementById("option 4").addEventListener("click",function(){
-        doEverything(scene[1+(scene.length-2)/2+4])
-    })
-
+    if (scene.length >=6){
+        document.getElementById("option 2").addEventListener("click",function(){
+            doEverything(scene[1+(scene.length-2)/2+2])
+        })
+        if (scene.length >= 8){
+            document.getElementById("option 3").addEventListener("click",function(){
+            doEverything(scene[1+(scene.length-2)/2+3])
+            })
+            if (scene.length >= 10){
+                document.getElementById("option 4").addEventListener("click",function(){
+                doEverything(scene[1+(scene.length-2)/2+4])
+                })}
+        }
+    }
 }
 
 
@@ -102,10 +113,3 @@ function createOptions(scene){
 }
 
 doEverything("Start")
-/*
-changeText("question",sceneList[currentScene][0])
-
-document.getElementById("image").src = sceneList[currentScene][1]
-changeText("options",createOptions(sceneList[currentScene]))
-//changeText("options","<li>cock</li><li>cock</li>")
-*/
